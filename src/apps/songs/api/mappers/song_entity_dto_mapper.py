@@ -22,8 +22,8 @@ class SongEntityDTOMapper(AbstractEntityDtoMapper[SongEntity, SongResponseDTO]):
         # Obtener nombres de géneros basándose en genre_ids (síncronamente)
         genre_names = self._get_genre_names_from_ids_sync(entity.genre_ids or [])
 
-        # Por ahora artist_name será None hasta que se implemente artists
-        artist_name = None
+        # Obtener el nombre del artista desde la entidad
+        artist_name = entity.artist_name
 
         return SongResponseDTO(
             id=entity.id,
